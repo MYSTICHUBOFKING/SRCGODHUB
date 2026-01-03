@@ -2818,7 +2818,7 @@ local AntiRagdollToggle =
                             while _AntiRagdollEnabled do
                                 sendRemoteAction("end_ragdoll_early")
                                 task.wait(0.3)
-                                if not _AntiRagdollEnabled then
+                                if not _AntiRagdollEnabled then   if not _AntiRagdollEnabled then
                                     break
                                 end
                                 sendRemoteAction("clear_ragdoll")
@@ -2828,6 +2828,23 @@ local AntiRagdollToggle =
                     )
                 end
             )
+        end
+    }
+)
+myConfig:Register("AntiRagdoll", AntiRagdollButton)
+local lnvisible =
+    Tab_Character:Button(
+    }
+    Title = "Invisible",   
+    Default = false,
+    Callback = function()
+       Net.send("request_respawn")
+        task.wait(6.1)
+        Net.get("death_screen_request_respawn")
+        setfflag("NextGenReplicatorEnabledWrite4", "true")
+                WindUI:Notify({
+            Title = "Invisible Success",
+            Duration = 3,
         end
     }
 )
@@ -2950,8 +2967,7 @@ local SnapSlider =
             if teleportActive and HumanoidRootPart and startY then
                 local bottomPos =
                     Vector3.new(HumanoidRootPart.Position.X, startY - maxHeight, HumanoidRootPart.Position.Z)
-                HumanoidRootPart.CFrame = CFrame.new(bottomPos)
-                lockedY = bottomPos.Y
+                HumanoidRootPa                lockedY = bottomPos.Y
             end
         end
     }
@@ -3680,3 +3696,4 @@ Players.PlayerRemoving:Connect(
         end
     end
 )
+
