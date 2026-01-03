@@ -2831,23 +2831,6 @@ local AntiRagdollToggle =
         end
     }
 )
-myConfig:Register("AntiRagdoll", AntiRagdollButton)
-local lnvisible =
-    Tab_Character:Button(
-    }
-    Title = "Invisible",   
-    Default = false,
-    Callback = function()
-       Net.send("request_respawn")
-        task.wait(6.1)
-        Net.get("death_screen_request_respawn")
-        setfflag("NextGenReplicatorEnabledWrite4", "true")
-                WindUI:Notify({
-            Title = "Invisible Success",
-            Duration = 3,
-        end
-    }
-)
 myConfig:Register("AntiRagdoll", AntiRagdollToggle)
 local HideNameToggle =
     Tab_Character:Toggle(
@@ -3696,4 +3679,5 @@ Players.PlayerRemoving:Connect(
         end
     end
 )
+
 
